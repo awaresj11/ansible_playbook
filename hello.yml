@@ -1,0 +1,9 @@
+---
+- name: Hello Students
+  hosts: servers
+  become: yes
+  vars:
+    my_name: raj
+  tasks:
+   - name: Greet User
+     command: echo "Hello {{my_name}}"

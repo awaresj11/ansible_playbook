@@ -1,0 +1,16 @@
+- name: Install Multiple Packages
+  hosts: servers
+  become: yes
+  vars:
+    package:
+     - git
+     - unzip
+     - wget
+     - tree
+
+  tasks:
+   - name: Install Packages
+     apt:
+         name: "{{ item }}"
+         state: present
+     loop: "{{ package }}"
