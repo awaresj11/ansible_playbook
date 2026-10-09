@@ -1,0 +1,23 @@
+---
+- name: About State
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: Install nginx
+      apt:
+        name: nginx
+        #state: present
+        #state: latest
+        #state: absent
+        #state: started
+        #state: stopped
+        #state: restared
+        #state: relaoded
+
+    - name: About Servcies
+      service:
+        name: nginx
+        state: stopped
+        enabled: yes
+

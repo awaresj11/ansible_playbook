@@ -1,0 +1,28 @@
+---
+- name: Module Example
+  hosts: servers
+  become: yes
+
+  tasks:
+    - name: Create directory
+      file:
+        path: /home/ubuntu/aws
+        state: directory
+        mode: '0755'
+
+    - name: Create file
+      file:
+        path: /home/ubuntu/demo.txt
+        state: touch
+        mode: '0644'
+      
+    - name: Create User
+      user:
+        name: devops
+        state: present
+
+    - name: Display hostname shell cmd
+      shell: hostname
+
+    - name: Check Uptime using cmd
+      command: uptime  
